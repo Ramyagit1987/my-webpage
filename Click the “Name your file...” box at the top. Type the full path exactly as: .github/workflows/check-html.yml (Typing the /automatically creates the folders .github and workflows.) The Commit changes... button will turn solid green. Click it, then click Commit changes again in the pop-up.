@@ -1,0 +1,20 @@
+
+name: Check My Webpage
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check-html:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download project code
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: |
+          test -s index.html
+          echo "HTML file exists and is not empty!"
